@@ -1,6 +1,6 @@
 import React from 'react';
-import { FaCalendarAlt, FaEnvelope, FaInstagram, FaMapMarkerAlt, FaPhoneAlt, FaRegCalendar, FaTwitter, FaUsers, FaYoutube } from "react-icons/fa";
 import styles from './Footer.module.css';
+import { FaInstagram, FaYoutube, FaXTwitter } from "react-icons/fa6";
 
 // Impor logo-logo untuk strip atas. Ganti nama file sesuai yang Anda simpan.
 import logoJakarta from '../../assets/footer/kemendagri.png';
@@ -19,12 +19,11 @@ const Footer = () => {
     ];
 
     return (
-         <footer className={styles.footer} aria-label="Footer">
-            {/* Logo Strip */}
-            <div className={styles.logoStrip} style={{background: 'rgba(255,255,255,0.03)'}}>
-                <div className={`container ${styles.logoScroll}`} style={{justifyContent: 'center'}}>
+         <footer className={styles.footer}>
+            <div className={styles.logoStrip}>
+                <div className={`container ${styles.logoScroll}`}>
                     {partnerLogos.map((logo, index) => (
-                        <a href="#" key={index} className={styles.logoLink} aria-label={logo.alt}>
+                        <a href="#" key={index} className={styles.logoLink}>
                             <img src={logo.src} alt={logo.alt} className={styles.logoImage} />
                         </a>
                     ))}
@@ -33,25 +32,26 @@ const Footer = () => {
 
             <div className={`container ${styles.mainContent}`}>
                 <div className="row">
+                    
                     {/* KOLOM KIRI: FOLLOW US */}
-                    <div className="col-lg-4 d-flex flex-column align-items-start">
+                    <div className="col-lg-4 col-md-6 mb-4 mb-lg-0">
                         <h5 className={styles.footerHeading}>Follow Us</h5>
                         <ul className={styles.socialFollowList}>
                             <li className={styles.socialFollowItem}>
-                                <a href="https://www.instagram.com/ppidkabsemarang/" target="_blank" rel="noopener noreferrer" aria-label="Instagram ppidkabsemarang">
+                                <a href="https://www.instagram.com/ppidkabsemarang/" target="_blank" rel="noopener noreferrer">
                                     <FaInstagram />
                                     <span>ppidkabsemarang</span>
                                 </a>
                             </li>
                             <li className={styles.socialFollowItem}>
-                                <a href="https://www.youtube.com/c/SemarangTelevisi" target="_blank" rel="noopener noreferrer" aria-label="YouTube Semarang Televisi">
+                                <a href="https://www.youtube.com/c/SemarangTelevisi" target="_blank" rel="noopener noreferrer">
                                     <FaYoutube />
                                     <span>Semarang Televisi</span>
                                 </a>
                             </li>
                             <li className={styles.socialFollowItem}>
-                                <a href="https://twitter.com/kab_semarang" target="_blank" rel="noopener noreferrer" aria-label="X Kabupaten Semarang">
-                                    <FaTwitter />
+                                <a href="https://twitter.com/kab_semarang" target="_blank" rel="noopener noreferrer">
+                                    <FaXTwitter />
                                     <span>Kabupaten Semarang</span>
                                 </a>
                             </li>
@@ -59,47 +59,49 @@ const Footer = () => {
                     </div>
 
                     {/* KOLOM TENGAH: KONTAK KAMI */}
-                    <div className="col-lg-4 d-flex flex-column align-items-start">
-                        <h5 className={styles.footerHeading}>Kontak Kami</h5>
-                        <div className={styles.contactInfo}>
-                            <p><FaMapMarkerAlt style={{marginRight: 8}}/><strong>Alamat:</strong> Jl. Diponegoro No. 14, Ungaran, Kabupaten Semarang, Jawa Tengah 50511</p>
-                            <p><FaPhoneAlt style={{marginRight: 8}}/><strong>Telepon:</strong> (024) 6921013</p>
-                            <p><FaEnvelope style={{marginRight: 8}}/><strong>Email:</strong> diskominfo@semarangkab.go.id</p>
-                        </div>
-                    </div>
+                 <div className="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <h5 className={styles.footerHeading}>Kontak Kami</h5>
+                    {/* BUNGKUS DENGAN DIV BARU DAN HAPUS <br/> */}
+                    <div className={styles.contactInfo}>
+                    <p>
+                        <strong>Alamat:</strong> Jl. Diponegoro No. 14, Ungaran, Kabupaten Semarang, Jawa Tengah 50511
+                    </p>
+                    <p>
+                        <strong>Telepon:</strong> (024) 6921013
+                    </p>
+                    <p>
+                     <strong>Email:</strong> diskominfo@semarangkab.go.id
+                    </p>
+                </div>
+            </div>
 
                     {/* KOLOM KANAN: PENGUNJUNG */}
-                    <div className={`col-lg-4 d-flex flex-column align-items-end ${styles.statRightCol}`}>
-                        <h5 className={styles.footerHeading} style={{textAlign: 'right', width: '100%'}}>Statistik Pengunjung</h5>
-                        <div className={styles.visitorStatsCardsVertical}>
-                            <div className={styles.statCardVertical}>
-                                <FaCalendarAlt className={styles.statIcon} />
-                                <span>Bulan Ini</span>
+                    <div className="col-lg-4">
+                        <h5 className={styles.footerHeading}>Statistik Pengunjung</h5>
+                        <div className={styles.visitorStats}>
+                            <div className={styles.statItem}>
+                                <span>Pengunjung Bulan Ini</span>
                                 <strong>112,470</strong>
                             </div>
-                            <div className={styles.statCardVertical}>
-                                <FaRegCalendar className={styles.statIcon} />
-                                <span>Tahun Ini</span>
+                            <div className={styles.statItem}>
+                                <span>Pengunjung Tahun Ini</span>
                                 <strong>850,921</strong>
                             </div>
-                            <div className={styles.statCardVertical}>
-                                <FaUsers className={styles.statIcon} />
-                                <span>Total</span>
+                            <div className={styles.statItem}>
+                                <span>Total Pengunjung</span>
                                 <strong>2,431,567</strong>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
 
-            {/* Divider */}
-            <div style={{borderTop: '1px solid rgba(255,255,255,0.08)', margin: '32px 0 0 0'}}></div>
-
-            {/* Bagian 3: Sub-Footer */}
+            {/* Bagian 3: Sub-Footer (Tidak Berubah) */}
             <div className={styles.subFooter}>
                 <div className="container">
                     <p className={styles.copyrightText}>
-                         Copyright © 2025 RICO AJI DHARMA | EKA FAJAR FIRANDANI | REVANDA NUR SSSU
+                        © 2025 Dinas Komunikasi dan Informatika Kabupaten Semarang
                     </p>
                 </div>
             </div>

@@ -1,10 +1,9 @@
-import AboutUs from '../views/aboutUs';
-import Berita from '../views/berita';
-import ContactUs from '../views/contactUs';
 import Home from "../views/home";
-import IndividualService from "../views/individualService";
-import ProjectDetails from "../views/projectDetails";
 import Service from "../views/services";
+import ContactUs from '../views/contactUs';
+import IndividualService from "../views/individualService";
+import AboutUs from '../views/aboutUs';
+import ProjectDetails from "../views/projectDetails";
 import SMediaService from '../views/sMediaService';
 
 const routes = [
@@ -35,10 +34,6 @@ const routes = [
     {
         components: <SMediaService />,
         to: '/sMediaService'
-    },
-    {
-        components: <Berita />,
-        to: '/berita'
     }
 ];
 

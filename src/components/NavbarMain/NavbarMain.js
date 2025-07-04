@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
-import { Link, NavLink } from "react-router-dom";
-import logoPPID from "../../assets/logoPPID.png";
+import React, { useState, useEffect } from "react";
+import { Nav, Navbar, Container, NavDropdown } from "react-bootstrap";
 import styles from "./NavbarMain.module.css";
+import { NavLink } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import logoPPID from "../../assets/logoPPID.png"; 
 const NavbarMain = () => {
 
   const [show, setShow] = useState(false);
-  const [activeNav, setActiveNav] = useState([ true, false, false, false, false ]);
+  const [activeNav, setActiveNav] = useState([ true, false, false, false ]);
   const [expand, setExpand] = useState(false);
 
   const closeNav = ()=>{
@@ -112,14 +113,6 @@ const NavbarMain = () => {
                 onClick={() => {handleActiveNav(3); closeNav()}}
               >
                 Contact Us
-              </NavLink>
-              <NavLink
-                to="/berita"
-                className={` ${styles.nav_text} nav-link ${activeNav[4] ? styles.active : ""}`}
-                style={{ marginTop: "8px" }}
-                onClick={() => {handleActiveNav(4); closeNav()}}
-              >
-                Berita
               </NavLink>
             </Nav>
           </Navbar.Collapse>
