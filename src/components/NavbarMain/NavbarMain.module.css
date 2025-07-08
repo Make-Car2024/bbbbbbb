@@ -1,3 +1,71 @@
+/* Language selector custom style */
+.langDropdown {
+  margin-left: 18px;
+}
+.langToggle {
+  border: none !important;
+  background: transparent !important;
+  color: #fff !important;
+  font-weight: 500 !important;
+  font-size: 15px !important;
+  box-shadow: none !important;
+  padding: 6px 16px !important;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+/* Language dropdown menu: terang, kontras, dan mudah dibaca */
+.langMenu {
+  min-width: 140px;
+  background: #fff !important;
+  color: #222 !important;
+  border: none !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.13) !important;
+  right: 0 !important;
+  left: auto !important;
+  padding: 8px 0;
+}
+.langMenu .dropdown-item {
+  color: #222 !important;
+  font-weight: 500;
+  background: transparent !important;
+  text-align: left;
+  font-size: 15px;
+  padding: 8px 20px;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+.langMenu .dropdown-item.active,
+.langMenu .dropdown-item:active,
+.langMenu .dropdown-item:focus,
+.langMenu .dropdown-item:hover {
+  background: #ff6600 !important;
+  color: #fff !important;
+}
+@media (max-width: 991px) {
+  .langDropdown {
+    margin-left: 0;
+    margin-top: 10px;
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+/* Tambahkan spacing horizontal antar menu navbar agar rapi */
+
+.navMenu {
+  display: flex;
+  gap: 18px; /* Jarak antar menu, lebih rapat dan proporsional */
+  align-items: center;
+}
+
+.navItem {
+  margin: 0 !important;
+  padding-left: 0;
+  padding-right: 0;
+  position: relative;
+  z-index: 1;
+}
+
 /* Paksa hamburger menu benar-benar putih di semua kondisi */
 .navbar-toggler {
     border-color: #fff !important;
@@ -43,6 +111,51 @@
     font-size: 18px;
     color: #ff4c0a !important;
     font-weight: bold;
+}
+
+/* Perbaiki highlight active agar tidak terlalu besar dan lebih proporsional */
+.active {
+  color: #ff6600 !important;
+  font-weight: 700;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+/* Hilangkan background biru pada menu/dropdown aktif (bootstrap override) */
+.nav-link.active,
+.nav-link:active,
+.dropdown-item.active,
+.dropdown-item:active,
+.navbar-nav .show > .nav-link,
+.navbar-nav .nav-link.show,
+.navbar-nav .nav-link:focus,
+.navbar-nav .nav-link:active {
+  background-color: transparent !important;
+  color: #ff6600 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Hilangkan background biru pada dropdown menu dan item aktif/hover (bootstrap override) */
+.dropdown-menu.show {
+  background-color: #0A1931 !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+  border: none;
+}
+.dropdown-item.active,
+.dropdown-item:active,
+.dropdown-item:focus,
+.dropdown-item:hover {
+  background-color: transparent !important;
+  color: #ff6600 !important;
+}
+
+/* Hilangkan background biru pada parent nav-link saat dropdown aktif */
+.navbar-nav .nav-item.show .nav-link,
+.navbar-nav .nav-item:focus .nav-link {
+  background-color: transparent !important;
+  color: #ff6600 !important;
+  box-shadow: none !important;
 }
 
 .drop{

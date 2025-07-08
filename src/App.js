@@ -1,9 +1,12 @@
-import NavbarMain from './components/NavbarMain'
+import HeaderBar from './components/HeaderBar/HeaderBar';
+import NavbarMain from './components/NavbarMain';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import './App.css';
 import routes from './router/route';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import FloatingWhatsappButton from './components/FloatingWhatsappButton';
+import ScrollToTopButton from './components/ScrollToTopButton';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -30,21 +33,27 @@ function App() {
   
   });
   return (
-    <Router>
-      <ScrollToTop />
-      <div className="App">
-        <NavbarMain />
-        <div className='content'>
-          <Routes>
-            {
-              routes.map(x => (
-                <Route key={x.to} path={x.to} element={x.components} exact/>
-              ))
-            }
-          </Routes>
+    <>
+      <HeaderBar />
+      <Router>
+        <ScrollToTop />
+        <div className="App">
+          <NavbarMain />
+          <div className='content'>
+            <Routes>
+              {
+                routes.map(x => (
+                  <Route key={x.to} path={x.to} element={x.components} exact/>
+                ))
+              }
+            </Routes>
+          </div>
+          {/* Floating WhatsApp and ScrollToTopButton */}
+          <FloatingWhatsappButton />
+          <ScrollToTopButton />
         </div>
-      </div>
-    </Router>
+      </Router>
+    </>
   );
 }
 

@@ -1,3 +1,30 @@
+/* Floating WhatsApp Button Global Style */
+.floating-wa-btn {
+  position: fixed;
+  right: 24px;
+  bottom: 88px;
+  z-index: 1000;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  border-radius: 50%;
+  transition: box-shadow 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.floating-wa-btn:hover {
+  box-shadow: 0 8px 24px rgba(37,211,102,0.25);
+  transform: scale(1.08);
+}
+@media (max-width: 600px) {
+  .floating-wa-btn {
+    right: 16px;
+    bottom: 72px;
+  }
+}
 .App {
   text-align: center;
 }

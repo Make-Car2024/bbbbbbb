@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaCalendarAlt, FaEnvelope, FaInstagram, FaMapMarkerAlt, FaPhoneAlt, FaRegCalendar, FaTwitter, FaUsers, FaYoutube } from "react-icons/fa";
 import styles from './Footer.module.css';
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 // Impor logo-logo untuk strip atas. Ganti nama file sesuai yang Anda simpan.
 import logoJakarta from '../../assets/footer/kemendagri.png';
@@ -18,17 +20,78 @@ const Footer = () => {
         { src: logoSatuData, alt: 'Logo Satu Data' },
     ];
 
+    // Helper untuk membagi array logo menjadi chunk berisi 2 logo
+    function chunkArray(array, size) {
+      const result = [];
+      for (let i = 0; i < array.length; i += size) {
+        result.push(array.slice(i, i + size));
+      }
+      return result;
+    }
+    const logoChunks = chunkArray(partnerLogos, 2);
+
+    // Hook untuk deteksi mobile
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+      const checkMobile = () => setIsMobile(window.innerWidth <= 767);
+      checkMobile();
+      window.addEventListener('resize', checkMobile);
+      return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     return (
         <footer className={styles.footer} aria-label="Footer">
             {/* Logo Strip */}
             <div className={styles.logoStrip} style={{ background: 'rgba(255,255,255,0.03)' }}>
-                <div className={`container ${styles.logoScroll} ${styles.logoSliderMobile}` } style={{ justifyContent: 'center' }}>
+              {isMobile ? (
+                <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+                  <Carousel
+                    additionalTransfrom={0}
+                    arrows={true}
+                    autoPlay={true}
+                    autoPlaySpeed={2500}
+                    centerMode={false}
+                    className=""
+                    containerClass="carousel-container"
+                    dotListClass=""
+                    draggable
+                    focusOnSelect={false}
+                    infinite
+                    itemClass=""
+                    keyBoardControl
+                    minimumTouchDrag={80}
+                    renderButtonGroupOutside={false}
+                    renderDotsOutside={false}
+                    responsive={{
+                      mobile: {
+                        breakpoint: { max: 767, min: 0 },
+                        items: 2,
+                        slidesToSlide: 2
+                      }
+                    }}
+                    showDots={false}
+                    sliderClass=""
+                    slidesToSlide={2}
+                    swipeable
+                  >
                     {partnerLogos.map((logo, index) => (
-                        <a href="#" key={index} className={styles.logoLink} aria-label={logo.alt}>
-                            <img src={logo.src} alt={logo.alt} className={styles.logoImage} />
+                      <div key={index} style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+                        <a href="#" className={styles.logoLink} aria-label={logo.alt}>
+                          <img src={logo.src} alt={logo.alt} className={styles.logoImage} />
                         </a>
+                      </div>
                     ))}
+                  </Carousel>
                 </div>
+              ) : (
+                <div className={`container ${styles.logoScroll} ${styles.logoSliderMobile}`} style={{ justifyContent: 'center' }}>
+                  {partnerLogos.map((logo, index) => (
+                    <a href="#" key={index} className={styles.logoLink} aria-label={logo.alt}>
+                      <img src={logo.src} alt={logo.alt} className={styles.logoImage} />
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Konten utama: 3 kolom sejajar (row flex) */}

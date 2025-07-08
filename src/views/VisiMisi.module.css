@@ -1,0 +1,176 @@
+.visiMisiBg {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #e3ecf7 0%, #fff 100%);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.headerSection {
+  background: linear-gradient(180deg, #0a1931 0%, #3b5998 100%);
+  padding: 48px 0 32px 0;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #ffe600;
+}
+.breadcrumb {
+  font-size: 1.1rem;
+  color: #ffe600;
+  margin-top: 8px;
+}
+.breadcrumbHome {
+  color: #ffe600;
+  font-weight: 600;
+}
+.breadcrumbDivider {
+  color: #fff;
+  margin: 0 6px;
+}
+.contentSection {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  padding: 40px 32px 32px 32px;
+  margin-top: -60px;
+  z-index: 2;
+  position: relative;
+}
+.metaInfo {
+  display: flex;
+  gap: 18px;
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 24px;
+}
+.meta i {
+  margin-right: 6px;
+}
+.sectionTitle {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #0a1931;
+  margin-bottom: 18px;
+}
+.visiBlock {
+  margin-bottom: 32px;
+}
+.visiText {
+  font-size: 1.1rem;
+  margin: 8px 0 12px 0;
+  color: #222;
+}
+.visiQuote {
+  font-size: 1.2rem;
+  color: #ff0000;
+  font-weight: bold;
+  text-align: center;
+  margin: 12px 0 0 0;
+}
+.misiBlock {
+  margin-bottom: 32px;
+}
+.misiList {
+  margin: 12px 0 0 18px;
+  color: #222;
+  font-size: 1.08rem;
+}
+.infoSidebar {
+  position: absolute;
+  top: 120px;
+  right: 40px;
+  width: 270px;
+  background: none;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.infoTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1756a9;
+  margin-bottom: 12px;
+}
+.infoBox {
+  background: #1756a9;
+  color: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  padding: 18px 20px;
+  margin-bottom: 18px;
+  width: 100%;
+  font-size: 1.05rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.fabGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-end;
+  margin-top: 8px;
+}
+.fabWa, .fabIg {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #25d366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.6rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+  transition: background 0.2s, transform 0.2s;
+  text-decoration: none;
+}
+.fabIg {
+  background: #1756a9;
+}
+.fabWa:hover, .fabIg:hover {
+  transform: scale(1.08);
+  filter: brightness(1.1);
+}
+@media (max-width: 1100px) {
+  .infoSidebar {
+    position: static;
+    width: 100%;
+    align-items: stretch;
+    margin-top: 32px;
+  }
+}
+@media (max-width: 900px) {
+  .contentSection {
+    padding: 32px 10px 24px 10px;
+  }
+  .infoSidebar {
+    right: 0;
+    width: 100%;
+    margin-top: 24px;
+    align-items: stretch;
+  }
+}
+@media (max-width: 700px) {
+  .headerSection {
+    padding: 32px 0 18px 0;
+  }
+  .contentSection {
+    margin-top: -30px;
+    padding: 18px 2vw 12px 2vw;
+  }
+  .infoSidebar {
+    margin-top: 18px;
+    position: static;
+    width: 100%;
+    align-items: stretch;
+  }
+}

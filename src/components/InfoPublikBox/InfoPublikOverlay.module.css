@@ -1,0 +1,11 @@
+.infoPublikOverlay {
+  position: absolute;
+  top: 120px; /* Atur sesuai kebutuhan */
+  left: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+  pointer-events: auto;
+  margin-bottom: 80px; /* Jarak ke bawah agar tidak menutupi ServicesHome */
+} 

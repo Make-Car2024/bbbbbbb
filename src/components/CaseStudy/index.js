@@ -1,2 +1,2 @@
-import CaseStudy from './CaseStudy';
-export default CaseStudy;
+import BeritaList from '../Berita';
+export default BeritaList;

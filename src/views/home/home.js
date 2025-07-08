@@ -1,62 +1,87 @@
-import React from "react";
-import AboutUsHome from "../../components/AboutUsHome";
+import React, { useEffect, useState } from "react";
+import TentangPPID from "../../components/TentangPPID";
 import Banner from '../../components/Banner';
 import CaseStudy from "../../components/CaseStudy";
+import BeritaList from "../../components/Berita/BeritaList";
 import ChoosingUs from "../../components/ChoosingUs";
 import Footer from "../../components/Footer";
-import FormPermohonanSection from '../../components/FormPermohonanSection';
 import Real from "../../components/Real";
 import ServicesHome from "../../components/ServicesHome";
 import Testimonial from "../../components/Testimonial";
+import InfoPublikBox from "../../components/InfoPublikBox/InfoPublikBox";
+import InfoPublikOverlay from "../../components/InfoPublikOverlay/InfoPublikOverlay";
+import FloatingWhatsappButton from "../../components/FloatingWhatsappButton";
+
 
 
 const Home = () => {
+  const [infoPublikVisible, setInfoPublikVisible] = useState(false);
+  useEffect(() => {
+    const timer = setTimeout(() => setInfoPublikVisible(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <>
-      {/* Banner Section  */}
-      <section>
-        <Banner />
-      </section>
+      <div style={{minHeight: '100vh', display: 'flex', flexDirection: 'column'}}>
+        <main style={{flex: 1, display: 'flex', flexDirection: 'column'}}>
+          {/* Banner Section  */}
+          <section style={{paddingTop: 0, marginTop: 0}}>
+            <Banner />
+          </section>
 
-      {/* Permohonan Section */}
-      <section>
-        <FormPermohonanSection />
-      </section>
+          {/* Info Publik Section dengan overlay */}
+          <section style={{padding: '0 0 24px 0', background: 'transparent', position: 'relative'}}>
+            <div className={`infoPublikOverlayWrapper${infoPublikVisible ? ' popIn' : ''}`}>
+              <InfoPublikOverlay />
+            </div>
+            <div className={infoPublikVisible ? 'popIn' : ''}>
+              <InfoPublikBox />
+            </div>
+          </section>
 
-      {/* About Us Section */}
-      <section>
-        <AboutUsHome />
-      </section>
+          {/* Berita Section} */}
+          <section>
+            <BeritaList />
+          </section>
 
-      {/* Why Choosing Us Section  */}
-      <section>
-        <ChoosingUs />
-      </section>
-      
-      {/* Services Section  */}
-      <section>
-        <ServicesHome />
-      </section>
+          {/* Services Section  */}
+          {/* <section>
+            <ServicesHome />
+          </section> */}
 
-      {/* Case Study Section  */}
-      <section>
-        <CaseStudy />
-      </section>
+          {/* Tentang PPID Section */}
+          <section>
+            <TentangPPID />
+          </section>
 
-      {/* Real Section  */}
-      <section>
-        <Real />
-      </section>
+          {/* Why Choosing Us Section  */}
+          {/* <section>
+            <ChoosingUs />
+          </section> */}
+          
+          {/* Case Study Section  */}
+          {/* <section>
+            <CaseStudy />
+          </section> */}
 
-      {/* Testimonial Section  */}
-      <section>
-        <Testimonial />
-      </section>
+          {/* Real Section  */}
+          {/* <section>
+            <Real />
+          </section> */}
 
+          {/* Testimonial Section  */}
+          {/* <section>
+            <Testimonial />
+          </section> */}
+        </main>
+      </div>
       {/* Footer Section  */}
-      <section>
+      <footer style={{marginTop: 'auto', padding: 0}}>
         <Footer />
-      </section>
+      </footer>
+      
+      <FloatingWhatsappButton />
+     
     </>
   );
 };
