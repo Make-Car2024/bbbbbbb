@@ -80,7 +80,7 @@ const Home = () => {
         <Footer />
       </footer>
       
-      <FloatingWhatsappButton />
+      {/* <FloatingWhatsappButton /> */}
      
     </>
   );

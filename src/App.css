@@ -1,9 +1,44 @@
+/* Floating buttons container for WhatsApp and Accessibility Widget */
+.floating-buttons-container {
+  position: fixed;
+  bottom: 8px;
+  left: 32px;
+  right: unset;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  z-index: 9999;
+  margin-bottom: 0;
+  /* pastikan menempel ke bawah dan vertikal */
+}
+.floating-buttons-container > * {
+  width: 56px !important;
+  height: 56px !important;
+  border-radius: 50% !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  z-index: 9999;
+}
+/* Khusus AccessibilityWidget agar tidak absolute/fixed */
+.floating-buttons-container .react-accessibility {
+  position: static !important;
+  margin: 0 !important;
+  width: 56px !important;
+  height: 56px !important;
+  border-radius: 50% !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
 /* Floating WhatsApp Button Global Style */
 .floating-wa-btn {
-  position: fixed;
-  right: 24px;
-  bottom: 88px;
-  z-index: 1000;
+  /* Ikuti posisi dari container, tidak perlu fixed */
   background: none;
   border: none;
   outline: none;
@@ -20,9 +55,20 @@
   transform: scale(1.08);
 }
 @media (max-width: 600px) {
-  .floating-wa-btn {
-    right: 16px;
-    bottom: 72px;
+  .floating-buttons-container {
+    left: 8px;
+    right: unset;
+    bottom: 8px;
+    gap: 10px;
+    margin-bottom: 0;
+  }
+  .floating-buttons-container > * {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  .floating-buttons-container .react-accessibility {
+    width: 44px !important;
+    height: 44px !important;
   }
 }
 .App {

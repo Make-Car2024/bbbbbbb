@@ -4,10 +4,10 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import './App.css';
 import routes from './router/route';
-import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import FloatingWhatsappButton from './components/FloatingWhatsappButton';
 import ScrollToTopButton from './components/ScrollToTopButton';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { AccessibilityWidget } from 'react-accessibility';
 
 function App() {
   // Animation global setting 
@@ -36,7 +36,6 @@ function App() {
     <>
       <HeaderBar />
       <Router>
-        <ScrollToTop />
         <div className="App">
           <NavbarMain />
           <div className='content'>
@@ -48,9 +47,12 @@ function App() {
               }
             </Routes>
           </div>
-          {/* Floating WhatsApp and ScrollToTopButton */}
-          <FloatingWhatsappButton />
-          <ScrollToTopButton />
+          {/* Floating WhatsApp and Accessibility Widget in a styled container */}
+          <div className="floating-buttons-container">
+            <ScrollToTopButton />
+            <FloatingWhatsappButton />
+          </div>
+          <AccessibilityWidget />
         </div>
       </Router>
     </>

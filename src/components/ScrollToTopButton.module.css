@@ -1,14 +1,12 @@
 .scrollToTopBtn {
-  position: fixed;
-  right: 24px;
-  bottom: 24px;
   z-index: 999;
   background: #ff6600;
   color: #fff;
   border: none;
+  outline: none;
   border-radius: 50%;
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,20 +14,9 @@
   cursor: pointer;
   transition: background 0.2s, box-shadow 0.2s, opacity 0.2s;
   opacity: 0.92;
-  /* Tambah jarak dari tombol WhatsApp */
-  margin-top: 64px;
 }
 .scrollToTopBtn:hover {
   background: #0A1931;
   color: #fff;
   opacity: 1;
-}
-@media (max-width: 600px) {
-  .scrollToTopBtn {
-    right: 16px;
-    bottom: 16px;
-    width: 42px;
-    height: 42px;
-    margin-top: 56px;
-  }
 }
