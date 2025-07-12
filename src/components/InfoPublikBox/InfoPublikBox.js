@@ -44,6 +44,11 @@ const InfoPublikBox = () => {
     // Implementasi search functionality
   };
 
+  // Filter menuItems sesuai searchTerm
+  const filteredItems = menuItems.filter(item =>
+    item.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className={styles.infoBox}>
       <h2 className={styles.title}>Informasi Publik</h2>
@@ -62,17 +67,21 @@ const InfoPublikBox = () => {
       </div>
 
       <div className={styles.menuGrid}>
-        {menuItems.map(item => {
-          const IconComponent = item.Icon;
-          return (
-            <div key={item.id} className={styles.menuItem}>
-              <div className={styles.iconCircle} style={{ color: item.color }}>
-                <IconComponent size={44} />
+        {filteredItems.length === 0 ? (
+          <div style={{gridColumn: '1/-1', textAlign: 'center', color: '#888', padding: '24px 0'}}>Tidak ditemukan</div>
+        ) : (
+          filteredItems.map(item => {
+            const IconComponent = item.Icon;
+            return (
+              <div key={item.id} className={styles.menuItem}>
+                <div className={styles.iconCircle} style={{ color: item.color }}>
+                  <IconComponent size={44} />
+                </div>
+                <p className={styles.menuTitle}>{item.title}</p>
               </div>
-              <p className={styles.menuTitle}>{item.title}</p>
-            </div>
-          );
-        })}
+            );
+          })
+        )}
       </div>
     </div>
   );
