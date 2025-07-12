@@ -4,9 +4,12 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import logoPPID from "../../assets/logoPPID.png";
 import { FaInstagram, FaYoutube, FaTwitter } from "react-icons/fa";
 import styles from "./NavbarMain.module.css";
+import { useTranslation } from 'react-i18next';
+import i18n from '../../i18n';
 
 const NavbarMain = () => {
   const location = useLocation();
+  const { t } = useTranslation();
   const [show, setShow] = useState(false);
   const [activeNav, setActiveNav] = useState([true, false, false, false, false, false]);
   const [expand, setExpand] = useState(false);
@@ -46,6 +49,10 @@ const NavbarMain = () => {
     sessionStorage.setItem("NavbarMain", JSON.stringify(temp));
   };
 
+  const handleLangChange = (lng) => {
+    setLang(lng);
+    i18n.changeLanguage(lng);
+  };
 
 
   return (
@@ -80,7 +87,7 @@ const NavbarMain = () => {
                 className={`${styles.nav_text} nav-link ${activeNav[0] ? styles.active : ""} ${styles.navItem}`}
                 onClick={() => {handleActiveNav(0); closeNav()}}
               >
-                Home
+                {t('home')}
               </NavLink>
 
               {/* Profil dropdown */}
@@ -127,7 +134,7 @@ const NavbarMain = () => {
                 className={`${styles.nav_text} nav-link ${activeNav[3] ? styles.active : ""} ${styles.navItem}`}
                 onClick={() => {handleActiveNav(3); closeNav();}}
               >
-                Berita
+                {t('berita', 'Berita')}
               </NavLink>
 
               {/* Laporan dropdown */}
@@ -149,7 +156,7 @@ const NavbarMain = () => {
                 className={`${styles.nav_text} nav-link ${activeNav[5] ? styles.active : ""} ${styles.navItem}`}
                 onClick={() => {handleActiveNav(5); closeNav();}}
               >
-                Kontak
+                {t('contact', 'Kontak')}
               </NavLink>
             </Nav>
           </Navbar.Collapse>
@@ -160,8 +167,8 @@ const NavbarMain = () => {
                 <span role="img" aria-label="language">🌐</span> {lang === 'id' ? 'Bahasa' : 'English'}
               </Dropdown.Toggle>
               <Dropdown.Menu className={styles.langMenu}>
-                <Dropdown.Item active={lang === 'id'} onClick={() => setLang('id')}>Indonesia</Dropdown.Item>
-                <Dropdown.Item active={lang === 'en'} onClick={() => setLang('en')}>English</Dropdown.Item>
+                <Dropdown.Item active={lang === 'id'} onClick={() => handleLangChange('id')}>Indonesia</Dropdown.Item>
+                <Dropdown.Item active={lang === 'en'} onClick={() => handleLangChange('en')}>English</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </div>
