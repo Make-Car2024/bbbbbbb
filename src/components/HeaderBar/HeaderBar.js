@@ -13,14 +13,14 @@ const HeaderBar = () => (
       <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className={`${styles.icon} ${styles.facebook}`}>
         <FaFacebook />
       </a>
-      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className={`${styles.icon} ${styles.instagram}`}>
+      <a href="https://www.instagram.com/ppidkabsemarang/" target="_blank" rel="noopener noreferrer" className={`${styles.icon} ${styles.instagram}`}>
         <FaInstagram />
       </a>
-      <a href="https://x.com" target="_blank" rel="noopener noreferrer" className={`${styles.icon} ${styles.twitter}`}>
-        <FaXTwitter />
-      </a>
-      <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className={`${styles.icon} ${styles.youtube}`}>
+      <a href="https://www.youtube.com/c/SemarangTelevisi" target="_blank" rel="noopener noreferrer" className={`${styles.icon} ${styles.youtube}`}>
         <FaYoutube />
+      </a>
+      <a href="https://twitter.com/kab_semarang" target="_blank" rel="noopener noreferrer" className={`${styles.icon} ${styles.twitter}`}>
+        <FaXTwitter />
       </a>
     </div>
   </div>
